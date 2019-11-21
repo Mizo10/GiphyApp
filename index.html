@@ -98,6 +98,20 @@
                 }
             }
             $(".gif").on("click", function () {
+                // var state = $(this).attr("data-state");
+                console.log('i clicked this gif');
+                // this pulls the attr of src
+                var stopGif = $(this).attr("data-state");
+                //this pulls the attr animated image
+                var animate = $(this).attr("animated-image")
+
+                //this updates the animated image attr 
+                $(this).attr("animated-image", stopGif);
+                // this updated the src attr
+                $(this).attr("data-state", animate);
+            });
+            
+            $(document).on("click", ".gif", function () {
                 var state = $(this).attr("data-state");
                 if (state === "still") {
                     $(this).attr("src", $(this).attr("data-animate"));
@@ -107,8 +121,7 @@
                     $(this).attr("src", $(this).attr("data-still"));
                     $(this).attr("data-state", "still");
                 }
-            });
-
+            }); 
             // This function handles events where a animal button is clicked
             $("#add-animal").on("click", function (event) {
                 event.preventDefault();
